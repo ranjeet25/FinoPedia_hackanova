@@ -1,17 +1,26 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
-
+import Homepage from './LandingPage/Homepage'
+import Login from './AuthPage/Login'
+// import Dashboard from './Dashboard/Dashboard';
+// import GenAI from './Dashboard/GenAI/GenAI';
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-       <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-    </>
+   
+    <BrowserRouter>
+    <Routes>
+    
+      <Route index element={<Homepage></Homepage>} />
+      <Route path="/login" element={<Login></Login>} />
+      {/* <Route path="/dash" element={<Dashboard></Dashboard>} />
+      <Route path="/talk" element={<GenAI></GenAI>}/> */}
+    </Routes>
+    </BrowserRouter>
+   
+  
   )
 }
 
