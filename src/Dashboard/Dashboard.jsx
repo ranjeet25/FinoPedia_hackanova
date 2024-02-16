@@ -29,10 +29,10 @@ function Dashboard() {
           </h1>
         </div>
         <div className="my-2 bg-gray-400 h-[1px]" />
-        <div className=" grid grid-cols-2 gap-1 p-4 w-full h-26 bg-gray-100 rounded-md ">
-          <span className="text-[15px] ml-4 text-gray-700 font-bold">Customer ID</span>
-          <span className=" font-bold ml-1 text-[12px] bg-gray-500 px-4 py-1 rounded-full text-slate-100">
-            1020125463
+        <div className=" p-2 w-full h-26 bg-gray-100 rounded-md ">
+          <span className="text-[15px] ml-1 text-gray-700 font-bold">Customer ID :</span>
+          <span className=" font-bold text-xs text-green-500 text-[12px]  px-1 py-1 rounded-full ">
+          {sessionStorage.getItem("validUserEmail")}
           </span>
          
         </div>

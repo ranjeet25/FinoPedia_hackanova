@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-
+// ******** Depricated *********
 function ControlPanel() {
   return (
     <div className="w-1/5 bg-gray-700 h-screen p-2">
