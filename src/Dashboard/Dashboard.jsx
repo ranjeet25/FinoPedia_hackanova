@@ -6,6 +6,7 @@ import SpendDash from './spendAnalysis/SpendDash'
 import GenAI from './GenAI/GenAI';
 import Offers from './Offers/Offers';
 import InvestForm from './InvestmentAdvisor/components/InvestForm';
+import Taxation from './Taxation/Taxation';
 
 function Dashboard() {
 
@@ -13,6 +14,7 @@ function Dashboard() {
   const [GPTai, setGPTai] = useState(false);
   const [offers, setoffers] = useState(false);
   const [Investment, setInvestment] = useState(false);
+  const [taxation, setTaxation] = useState(false);
 
   return (
 
@@ -41,28 +43,36 @@ function Dashboard() {
           Profile
         </span>
       </div>
-      <button onClick={() =>{ setSpendAnalysis(true); setGPTai(false); setoffers(false);setInvestment(false)}} className=" w-full p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 hover:bg-green-600 text-black">
+      <button onClick={() =>{ setSpendAnalysis(true); setGPTai(false); setoffers(false);setInvestment(false);setTaxation(false)}} className=" w-full p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 hover:bg-green-600 text-black">
         <span className="text-[15px] ml-4 text-gray-200 font-bold">
           Spend Analysis
         </span>
       </button>
       
-      <div onClick={() =>{ setSpendAnalysis(false); setGPTai(true);setoffers(false);setInvestment(false)}} className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 hover:bg-green-500 text-black">
+      <div onClick={() =>{ setSpendAnalysis(false); setGPTai(true);setoffers(false);setInvestment(false);setTaxation(false)}} className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 hover:bg-green-500 text-black">
         <span className="text-[15px] ml-4 text-gray-200 font-bold">
           Talk with AI
         </span>
       </div>
 
-      <div onClick={() =>{ setSpendAnalysis(false); setGPTai(false);setoffers(false);setInvestment(true)}} className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 hover:bg-gray-400 text-black">
+      <div onClick={() =>{ setSpendAnalysis(false); setGPTai(false);setoffers(false);setInvestment(true);setTaxation(false)}} className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 hover:bg-gray-400 text-black">
         <span className="text-[15px] ml-4 text-gray-200 font-bold">
           Investment advisory
         </span>
       </div>
-      <div onClick={() =>{ setSpendAnalysis(false); setGPTai(false);setoffers(true);setInvestment(false)}} className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 hover:bg-gray-400 text-black">
+
+      <div onClick={() =>{ setSpendAnalysis(false); setGPTai(false);setoffers(false);setInvestment(false);setTaxation(true)}} className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 hover:bg-gray-400 text-black">
+        <span className="text-[15px] ml-4 text-gray-200 font-bold">
+          Taxation
+        </span>
+      </div>
+
+      <div onClick={() =>{ setSpendAnalysis(false); setGPTai(false);setoffers(true);setInvestment(false);setTaxation(false)}} className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 hover:bg-gray-400 text-black">
         <span className="text-[15px] ml-4 text-gray-200 font-bold">
           Recommended offers
         </span>
       </div>
+
       <Link to="/">
         <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-500 hover:bg-gray-400 text-black">
           <i className="bi bi-box-arrow-in-right" />
@@ -76,6 +86,7 @@ function Dashboard() {
         {GPTai && <GenAI></GenAI>}
         {offers && <Offers></Offers>}
         {Investment && <InvestForm></InvestForm>}
+        {taxation &&  <Taxation></Taxation>}
        
     </div>
     
