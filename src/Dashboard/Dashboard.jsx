@@ -87,7 +87,7 @@ function Dashboard() {
         {offers && <Offers></Offers>}
         {Investment && <InvestForm></InvestForm>}
         {taxation &&  <Taxation></Taxation>}
-       
+        
     </div>
     
   )

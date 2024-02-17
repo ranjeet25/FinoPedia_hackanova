@@ -186,38 +186,75 @@ function Taxation() {
   };
 
   return (
-    <div className='w-4/5 ' >
-      
-        <div className='chathistory bg-white h-screen w-4/4 p-2 overflow-y-scroll h-screen'>
-          {!buttonClicked && (
-            <div className="flex justify-center items-center h-screen">
+    <div className="w-4/5 ">
+      <div className="chathistory w-4/4 px-8 overflow-y-scroll h-screen bg-gray-200 text-sm p-4">
+        <p>
+          Tax benefits are incentives provided by governments to encourage
+          certain behaviors or activities that they deem beneficial to society
+          or the economy. In the context of investments, taxation benefits often
+          refer to advantages granted to individuals or businesses who invest in
+          specific types of assets or activities. These benefits can take
+          various forms, including tax deductions, tax credits, or preferential
+          tax rates.
+        </p>
+        <br />
+        <p>
+          - <strong>Tax-Deferred Growth:</strong>
+        </p>
+
+        <p>
+          - <strong>Capital Gains Tax Treatment:</strong>{" "}
+        </p>
+
+        <p>
+          - <strong>Tax Deductions for Retirement Contributions:</strong>{" "}
+        </p>
+
+        <p>
+          - <strong>Tax Credits for Specific Investments:</strong>{" "}
+        </p>
+
+        <p>
+          - <strong>Tax-Free Investment Income:</strong>{" "}
+        </p>
+
+        <p>
+          - <strong>Tax-Advantaged Savings Accounts:</strong>
+        </p>
+
+        <p>
+          - <strong>Tax Loss Harvesting:</strong>{" "}
+        </p>
+        {!buttonClicked && (
+          <div className="flex justify-center items-center mt-4 ">
             <button
-              className="w-[40%] inline-block rounded-lg bg-violet-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-violet-300 transition duration-100 hover:bg-violet-600 focus-visible:ring active:bg-gray-700 md:text-base"
+              className="w-[40%] inline-block rounded-lg bg-yellow-500 py-3 text-center text-sm font-semibold text-white outline-none ring-yellow-300 transition duration-100 hover:bg-yellow-600 focus-visible:ring active:bg-gray-700 md:text-base"
               onClick={callOpenAIAPI}
             >
-              Get The Taxation Response From Finopedia
+              Get your Taxation Benifits From Finopedia
             </button>
-            </div>
-          )}
-          {chatHistory.length > 0 && (
-            <div className=" rounded-md ">
-              {/* Render chat history */}
-              {chatHistory.map((chat, index) => (
-                <div key={index} className=" ">
-                  <div>
-                    <p className="text-sm mt-2"> <span className='font-bold bg-gray-500 px-3 py-1 text-white'>Your Query</span> </p>
-                    <p className='text-sm p-2 bg-gray-100 text-gray-900'>{` ${chat.question}`}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm mt-2"> <span className='font-bold bg-violet-500 px-3 py-1 text-white'>FinoPedia Taxations Based on New Taxation Rules(2024-2025)</span> </p>
-                    <p className='text-sm p-2 bg-violet-100 text-violet-900'>{` ${chat.answer}`}</p>
-                  </div>
+          </div>
+        )}
+        {chatHistory.length > 0 && (
+          <div className=" rounded-md ">
+            {/* Render chat history */}
+            {chatHistory.map((chat, index) => (
+              <div key={index} className=" ">
+                
+                <div className='mt-4'>
+                  <p className="text-sm mt-2">
+                    {" "}
+                    <span className="font-bold bg-yellow-500 px-3 py-1 text-white">
+                      FinoPedia Taxations Based on New Taxation Rules(2024-2025)
+                    </span>{" "}
+                  </p>
+                  <p className="text-sm p-2 bg-yellow-100 text-yellow-800">{` ${chat.answer}`}</p>
                 </div>
-              ))}
-            </div>
-          )}
-        </div>
-      
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

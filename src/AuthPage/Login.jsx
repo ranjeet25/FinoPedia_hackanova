@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 function Login() {
 
     const[userEmail, setuserEmail] = useState("");
+    const[erroralert, setErrorAlert] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -31,6 +32,10 @@ function Login() {
 
             if (!response.ok) {
                 // write code if wrong pass
+                //console.log(response.status);
+                if(response.status === 401){
+                    setErrorAlert(true);
+                }
                 throw new Error('Network response was not ok');
             }else{
               console.log("sucess");
@@ -46,11 +51,23 @@ function Login() {
 
     return (
         <div className="bg-white py-6 sm:py-8 lg:py-12">
+            
             <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
                 <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">
                     Login
                 </h2>
+
+                {erroralert && (
+                        <div className=' mb-2 flex justify-center items-start md:p-8 bg-red-100  '>
+                        <p className="inline-block text-sm text-red-700 font-bold sm:text-base">
+                            Wrong Email or Password
+                        </p>
+                       
+                        </div>
+                    )}
+               
                 <form onSubmit={handleSubmit} className="mx-auto max-w-lg rounded-lg border">
+
                     <div className="flex flex-col gap-4 p-4 md:p-8">
                         <div>
                             <label
